@@ -15,7 +15,5 @@
 
 <script setup>
     import LeftSideItem from './LeftSideItem.vue';
-    import { useLeftSidebar } from './useLeftSidebar'
-
-    const { menus } = useLeftSidebar()
+    import { menus } from '@/utilities/navigation.js'
 </script>

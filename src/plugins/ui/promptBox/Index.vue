@@ -1,9 +1,9 @@
 <template>
-    <div class="flex items-center gap-4 border p-4 px-6 bg-white font-light rounded">
+    <div class="flex items-center gap-4 border p-2 px-3 pl-4 bg-white font-light rounded">
         <textarea 
             ref="textarea"
-            class="block w-full border-0 bg-transparent outline-none ring-0 text-inherit resize-none"
-            placeholder="write your query..."
+            class="block w-full border-0 bg-transparent outline-none ring-0 text-inherit resize-none placeholder:opacity-60"
+            :placeholder="placeholder"
             v-model="localModel"
             @keydown.enter="handleKeyDown"
         />
@@ -19,8 +19,15 @@
 <script setup>
     import { watch } from 'vue'
     import { useTextareaAutosize } from '@vueuse/core'
-    const { textarea, input } = useTextareaAutosize()
     
+    defineProps({
+        placeholder: {
+            type: String,
+            default: 'write your query...'
+        }
+    })
+
+    const { textarea, input } = useTextareaAutosize()
     const emit = defineEmits(['submit'])
     const handleKeyDown = (event) => {
       if (event.key === 'Enter' && !event.shiftKey) {

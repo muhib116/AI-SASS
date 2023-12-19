@@ -14,6 +14,11 @@ const router = createRouter({
       component: () => import('@/pages/conversation/Index.vue')
     },
     {
+      path: '/post-title-generator',
+      name: 'post-title-generator',
+      component: () => import('@/pages/post-title-generator/Index.vue')
+    },
+    {
       path: '/image-generator',
       name: 'image-generator',
       component: () => import('@/pages/image-generator/Index.vue')

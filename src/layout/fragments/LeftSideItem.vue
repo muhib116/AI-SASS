@@ -27,6 +27,9 @@
 </script>
 
 <style scoped>
+    .active-link{
+        opacity: 100%;
+    }
     .active-link .overlay{
         background: white;
         opacity: 20%;

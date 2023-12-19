@@ -44,6 +44,7 @@
         iconComponent.value = icons[iconName]
     }
     watchEffect(() => {
+        if(!props.name) return
         let iconName = props.name.split('-')
                         .map(item => {
                             return `${item.charAt(0).toUpperCase()}${item.slice(1)}`
