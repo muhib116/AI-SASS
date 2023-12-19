@@ -12,6 +12,9 @@
   },
   "dependencies": {
     "@phosphor-icons/vue": "^2.1.6",
+    "@vueuse/core": "^10.7.0",
+    "markdown-it": "^14.0.0",
+    "openai": "^4.23.0",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
   },
