@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center gap-4 border p-2 px-3 pl-4 bg-white font-light rounded">
+    <div class="flex items-start gap-4 border p-2 px-3 pl-4 bg-white font-light rounded">
         <textarea 
             ref="textarea"
             class="block w-full border-0 bg-transparent outline-none ring-0 text-inherit resize-none placeholder:opacity-60"
@@ -7,6 +7,7 @@
             v-model="localModel"
             @keydown.enter="handleKeyDown"
         />
+        <slot></slot>
         <button 
             @click="$emit('submit')"
             class="bg-sky-400 shadow hover:bg-sky-500 duration-300 text-white px-4 py-2 rounded"

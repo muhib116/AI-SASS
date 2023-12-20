@@ -6,6 +6,7 @@
             :size="size"
             :color="color"
             :weight="weight"
+            :mirrored="mirrored"
         />
     </div>
 </template>
@@ -18,6 +19,7 @@
     })
     const props = defineProps({
         name: String,
+        mirrored: Boolean,
         weight: {
             type: String,
             default: "normal"

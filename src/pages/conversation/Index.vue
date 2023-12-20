@@ -6,7 +6,7 @@
         <div class="relative">
             <PromptBox
                 v-model="prompt"
-                @submit="submitPrompt(prompt, getModifiedPrompt(prompt), () => prompt = '')"
+                @submit="submitPrompt(prompt, getModifiedPrompt(prompt), systemPrompt, () => prompt = '')"
                 class="mb-10 sticky top-0"
             />
 
@@ -36,7 +36,7 @@
 <script setup>
     import { ref } from 'vue'
     import AppLayout from "@/layout/AppLayout.vue"
-    import { useOpenAi } from '@/openAi/useOpenAi.js'
+    import { useOpenAi } from '@/apiServices/useOpenAi.js'
     import { PromptBox, ChatBox, Loader } from '@/plugins/ui'
     import PageHeader from '@/layout/fragments/PageHeader.vue'
 
@@ -47,7 +47,9 @@
     } = useOpenAi()
 
     const prompt = ref('')
+    const systemPrompt = ''
+    
     const getModifiedPrompt = (userPrompt) => {
         return `give response like chatGpt in details: ${userPrompt}`
     }
-</script>
+</script>@/apis/useOpenAi.js

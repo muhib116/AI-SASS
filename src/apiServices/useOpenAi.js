@@ -6,24 +6,44 @@ export const useOpenAi = () => {
   const response = ref([])
   const loading = ref(false)
   const model = ref('gpt-3.5-turbo')
-
   const openAi = new OpenAI({
     organization: import.meta.env.VITE_OPEN_AI_ORG_KEY,
     apiKey: import.meta.env.VITE_OPEN_AI_API_KEY,
     dangerouslyAllowBrowser: true
   })
 
-  const generateImage = async (userPrompt, modifiedPrompt, cb) => {
-    console.log('hello')
+  const generateImage = async (userPrompt, modifiedPrompt, imgCount, resolution, cb) => {
     cb()
     loading.value = true
     const image = await openAi.images.generate({
       model: "dall-e-2", 
-      prompt: "A cute baby sea otter"
+      prompt: modifiedPrompt,
+      n: +imgCount,
+      size: resolution
     })
 
-    console.log(image.data);
+    response.value.unshift({
+      prompt: userPrompt,
+      content: ''
+    })
+
+    response.value[0].content = image.data
     loading.value = false
+  }
+
+  function _copyToClipboard(element) {
+    let elem = document.querySelector('.'+element)
+    if(elem) {
+      let text = elem.innerText
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          console.log('Text successfully copied to clipboard:', text);
+        })
+        .catch((err) => {
+          console.error('Unable to copy text to clipboard:', err);
+        });
+  
+    }
   }
 
   const submitPrompt = async (userPrompt, modifiedPrompt, systemPrompt, cb) => {
@@ -64,16 +84,23 @@ export const useOpenAi = () => {
     }
     
     // code highlighter start
-    hljs.highlightAll()
     let pre = document.querySelectorAll('pre')
+    hljs.highlightAll()
     if (pre) {
-      pre.forEach((item) => {
-        console.log(pre)
+      pre.forEach((item, index) => {
+        let id = Math.floor(Math.random() * 999999)
         let div = document.createElement('div')
-        let html = `<button class="codeCopyButton">Copy</button>`
-        div.innerHTML = html
+        item.classList.add(`id${id}`)
+        let button = document.createElement('button')
+        button.classList.add('codeCopyButton')
+        button.innerText = "Copy"
+        // let html = `<button index="${id}" class="codeCopyButton">Copy</button>`
+        div.innerHTML = button
+        button.addEventListener('click', _copyToClipboard(`id${id}`))
         item.prepend(div)
       })
+      
+      // _copyToClipboard
     }
   }
 
@@ -86,12 +113,3 @@ export const useOpenAi = () => {
   }
 }
 
-function _copyToClipboard(text) {
-  navigator.clipboard.writeText(text)
-    .then(() => {
-      console.log('Text successfully copied to clipboard:', text);
-    })
-    .catch((err) => {
-      console.error('Unable to copy text to clipboard:', err);
-    });
-}

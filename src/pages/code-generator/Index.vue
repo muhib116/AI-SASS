@@ -36,7 +36,7 @@
 <script setup>
     import { ref } from 'vue'
     import AppLayout from "@/layout/AppLayout.vue"
-    import { useOpenAi } from '@/openAi/useOpenAi.js'
+    import { useOpenAi } from '@/apiServices/useOpenAi.js'
     import { PromptBox, ChatBox, Loader } from '@/plugins/ui'
     import PageHeader from '@/layout/fragments/PageHeader.vue'
 
@@ -55,4 +55,4 @@
     const getModifiedPrompt = (userPrompt) => {
         return `${userPrompt}`
     }
-</script>
+</script>@/apis/useOpenAi.js
