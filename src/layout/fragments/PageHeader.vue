@@ -12,6 +12,7 @@
             <Icon 
                 :name="currentNavigation.icon"
                 :color="currentNavigation.color"
+                :weight="currentNavigation.weight"
             />
         </div>
         <div>

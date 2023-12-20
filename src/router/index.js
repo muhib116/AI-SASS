@@ -19,6 +19,21 @@ const router = createRouter({
       component: () => import('@/pages/post-title-generator/Index.vue')
     },
     {
+      path: '/youtube-title-generator',
+      name: 'youtube-title-generator',
+      component: () => import('@/pages/youtube-title-generator/Index.vue')
+    },
+    {
+      path: '/content-idea-generator',
+      name: 'content-idea-generator',
+      component: () => import('@/pages/content-idea-generator/Index.vue')
+    },
+    {
+      path: '/youtube-video-idea-generator',
+      name: 'youtube-video-idea-generator',
+      component: () => import('@/pages/youtube-video-idea-generator/Index.vue')
+    },
+    {
       path: '/image-generator',
       name: 'image-generator',
       component: () => import('@/pages/image-generator/Index.vue')

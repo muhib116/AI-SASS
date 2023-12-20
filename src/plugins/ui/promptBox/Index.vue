@@ -9,9 +9,15 @@
         />
         <button 
             @click="$emit('submit')"
-            class="bg-red-400 shadow hover:bg-red-500 duration-300 text-white px-4 py-2 rounded"
+            class="bg-sky-400 shadow hover:bg-sky-500 duration-300 text-white px-4 py-2 rounded"
         >
             Generate
+        </button>
+        <button 
+            @click="$emit('submit')"
+            class="bg-red-400 shadow hover:bg-red-500 duration-300 text-white px-4 py-2 rounded"
+        >
+            Regenerate
         </button>
     </div>
 </template>

@@ -27,6 +27,33 @@ export const menus = [
         color: '#F06292'
     },
     {
+        title: 'Youtube Title Generator',
+        description: 'Create catchy, SEO-friendly titles effortlessly.',
+        icon: 'youtube-logo',
+        to: {
+            name: 'youtube-title-generator'
+        },
+        color: '#F06292'
+    },
+    {
+        title: 'Content Idea Generator',
+        description: 'Create catchy, SEO-friendly titles effortlessly.',
+        icon: 'subtitles',
+        to: {
+            name: 'content-idea-generator'
+        },
+        color: '#F06292'
+    },
+    {
+        title: 'Youtube Video Idea Generator',
+        description: 'Create catchy, SEO-friendly titles effortlessly.',
+        icon: 'video',
+        to: {
+            name: 'youtube-video-idea-generator'
+        },
+        color: '#F06292'
+    },
+    {
         title: 'Image Generator',
         description: '',
         icon: 'image-square',

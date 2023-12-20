@@ -8,7 +8,7 @@
                 v-model="prompt"
                 @submit="submitPrompt(prompt, getModifiedPrompt(prompt), systemPrompt, () => prompt = '')"
                 class="mb-10 sticky top-0"
-                placeholder="Enter your keyword to generate post title"
+                placeholder="Enter your keyword to get video idea"
             />
 
             <Loader
@@ -45,20 +45,21 @@
     const {
         response,
         submitPrompt,
-        loading
+        loading,
     } = useOpenAi()
 
     const prompt = ref('')
     const systemPrompt = `
-        Generate an HTML list of blog post titles that are compelling, SEO-friendly, and engaging, with the potential to go viral and increase click-through rates (CTR). When crafting titles, take into account the following considerations:
+        Generate YouTube video ideas that are SEO-friendly, attractive, and engaging to maximize click-through rates (CTR) and encourage virality. Consider incorporating trending topics, key search terms, and compelling titles to optimize for search engines. Ensure the content is diverse, appeals to a broad audience, and provides value. Suggest unique angles or approaches that can make the videos stand out in the crowded online space. The goal is to generate content ideas that not only capture viewer attention but also have the potential to go viral, ultimately boosting CTR.
 
-        Ensure relevance to the topic or keyword.
-        Utilize engaging and attention-grabbing language.
-        Optimize for search engines.
-        Keep titles concise, aiming for around 60 characters.
-        Incorporate key terms users might search for.
-        Aim to appeal to a broad audience.
-        Format each title as an item in an HTML list (<ul> or <ol>) with each title enclosed in an <h3> tag and a margin-bottom of 20px. Generate a diverse list of titles that strike a balance between informativeness and attractiveness, with the primary goal of encouraging click-through and fostering reader engagement.
+        For each idea:
+
+        Wrap the title with <h3> tags.
+        Provide meta tags related to the title, separated by commas and make it semibold.
+        Include a video description.
+        Wrap the entire content idea in a <div style='margin-bottom: 20px'></div>.
+        Ensure that each content idea is numbered, and add an extra 20px margin after each idea for clarity.
+        every title, meta tags and video description should prefix with his related name
     `
     const getModifiedPrompt = (userPrompt) => {
         return userPrompt

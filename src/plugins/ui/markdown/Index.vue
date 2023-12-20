@@ -1,14 +1,21 @@
 <template>
-    <div v-html="result"></div>
+    <div
+        class="markdown"
+        v-html="content"
+    >
+    </div>
 </template>
 
 <script setup>
-    import { computed } from 'vue'
     import markdownit from 'markdown-it'
+    import './gpt.css'
+    import 'highlight.js/styles/atom-one-dark.min.css'
+    import { computed } from 'vue'
+
     const props = defineProps({
         content: String
     })
 
     const md = markdownit()
-    const result = computed(() => md.render(props.content))
+    const content = computed(() => md.render(props.content))
 </script>

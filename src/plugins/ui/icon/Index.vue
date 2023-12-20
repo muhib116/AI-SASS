@@ -13,9 +13,15 @@
 <script setup>
     import { ref, watchEffect } from 'vue'
 
+    defineOptions({
+        name: 'iconComponent',
+    })
     const props = defineProps({
         name: String,
-        weight: String,
+        weight: {
+            type: String,
+            default: "normal"
+        },
         custom: {
             type: Boolean,
             default: false

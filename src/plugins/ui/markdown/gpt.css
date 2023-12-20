@@ -1,0 +1,195 @@
+
+.markdown :is(code,kbd,pre,samp) {
+    font-family: Söhne Mono,Monaco,Andale Mono,Ubuntu Mono,monospace;
+    font-size: 1em
+}
+
+.markdown small {
+    font-size: 80%
+}
+
+.markdown :is(sub,sup) {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+.markdown sub {
+    bottom: -.25em
+}
+
+.markdown sup {
+    top: -.5em
+}
+
+.markdown table {
+    border-collapse: collapse;
+    border-color: inherit;
+    text-indent: 0
+}
+
+.markdown :is(button,input,optgroup,select,textarea) {
+    color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0
+}
+
+
+.markdown p+p {
+    margin-top: 16px;
+}
+
+.codeCopyButton {
+    padding: 4px 16px;
+    border-radius: 4px;
+    margin-left: auto;
+    display: block;
+    color: white;
+}
+.codeCopyButton:hover {
+    background-color: #ff000088;
+}
+.markdown ol {
+    list-style-type: auto;
+}
+.markdown pre code.hljs {
+    padding: 0 !important;
+}
+.markdown pre {
+    background: #282c34;
+    margin: 10px 0;
+    border-radius: 10px;
+    color: white;
+    padding: 16px;
+}
+.markdown .hljs {
+    border-radius: 10px;
+}
+.markdown ol li,
+.markdown ul li {
+    margin: 0;
+    position: relative;
+    margin-left: 20px;
+    margin-bottom: 10px !important;
+}
+
+.markdown ul li:before {
+    content: "•";
+    font-size: .875rem;
+    line-height: 1.25rem;
+    margin-left: -1rem;
+    position: absolute
+}
+
+.markdown {
+    max-width: none
+}
+
+.markdown h1 {
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 1rem;
+}
+
+.markdown h2 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 27px;
+}
+
+.markdown h3 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 25px;
+}
+
+.markdown h3,.markdown h4 {
+    margin-bottom: .5rem;
+    font-size: 20px;
+}
+
+.markdown h4 {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.markdown h5 {
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.markdown h6 {
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.markdown blockquote {
+    --tw-border-opacity: 1;
+    border-color: rgba(142,142,160,var(--tw-border-opacity));
+    border-left-width: 2px;
+    line-height: 1rem;
+    padding-left: 1rem
+}
+
+.markdown ol,.markdown ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem
+}
+
+.markdown ol li,.markdown ol li>p,.markdown ol ol,.markdown ol ul,.markdown ul li,.markdown ul li>p,.markdown ul ol,.markdown ul ul {
+    margin: 0
+}
+
+.markdown table {
+    --tw-border-spacing-x: 0px;
+    --tw-border-spacing-y: 0px;
+    border-collapse: separate;
+    border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
+    width: 100%
+}
+
+.markdown th {
+    background-color: rgba(236,236,241,.2);
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    padding: .25rem .75rem
+}
+
+.markdown th:first-child {
+    border-top-left-radius: .375rem
+}
+
+.markdown th:last-child {
+    border-right-width: 1px;
+    border-top-right-radius: .375rem
+}
+
+.markdown td {
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    padding: .25rem .75rem
+}
+
+.markdown td:last-child {
+    border-right-width: 1px
+}
+
+.markdown tbody tr:last-child td:first-child {
+    border-bottom-left-radius: .375rem
+}
+
+.markdown tbody tr:last-child td:last-child {
+    border-bottom-right-radius: .375rem
+}
+
+.markdown a {
+    text-decoration-line: underline;
+    text-underline-offset: 2px
+}
