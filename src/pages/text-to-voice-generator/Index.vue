@@ -3,19 +3,19 @@
         <PageHeader
             class="mb-6"
         />
-        <div class="relative">
+        <div>
             <PromptBox
                 v-model="prompt"
                 @submit="submitPrompt(prompt, getModifiedPrompt(prompt), systemPrompt, () => prompt = '')"
                 class="mb-10 sticky top-0"
+                placeholder="Enter your instruction to generate code"
             />
 
             <Loader
                 :active="loading"
-                content="Ai generating the content..."
-                class="absolute inset-1/2 z-40"
+                content="Ai generating the code..."
             />
-
+            <button class="codeCopyButton">copy</button>
             <div 
                 v-for="(item, index) in response"
                 :key="index"
@@ -33,7 +33,7 @@
     </AppLayout>
 </template>
 
-<script lang="ts" setup>
+<script setup>
     import { ref } from 'vue'
     import AppLayout from "@/layout/AppLayout.vue"
     import { useOpenAi } from '@/apiServices/useOpenAi.js'
@@ -47,9 +47,12 @@
     } = useOpenAi()
 
     const prompt = ref('')
-    const systemPrompt = ''
-    
+    //const systemPrompt = 'You will be provided with a piece of code, and your task is to explain it in a concise way.'
+    const systemPrompt = `
+        Generate code snippets along with explanations based on the provided text. Given a natural language description or requirement, produce clear and concise code that fulfills the specified task. Include explanatory comments in the generated code to clarify the purpose and functionality of each section. Ensure that the code is well-structured, follows best practices, and is easily understandable. Aim for a balance between code simplicity and comprehensiveness in the explanations. The goal is to create code that is not only functional but also serves as a learning resource for understanding the underlying logic and implementation.
+        put all the code inside pre tags
+    `
     const getModifiedPrompt = (userPrompt) => {
-        return `give response like chatGpt in details: ${userPrompt}`
+        return `${userPrompt}`
     }
 </script>@/apis/useOpenAi.js

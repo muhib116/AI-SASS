@@ -94,13 +94,10 @@ export const useOpenAi = () => {
         let button = document.createElement('button')
         button.classList.add('codeCopyButton')
         button.innerText = "Copy"
-        // let html = `<button index="${id}" class="codeCopyButton">Copy</button>`
         div.innerHTML = button
         button.addEventListener('click', _copyToClipboard(`id${id}`))
         item.prepend(div)
       })
-      
-      // _copyToClipboard
     }
   }
 

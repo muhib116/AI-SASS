@@ -58,6 +58,11 @@ const router = createRouter({
       name: 'settings',
       component: () => import('@/pages/settings/Index.vue')
     },
+    {
+      path: '/text-to-voice-generator',
+      name: 'text-to-voice-generator',
+      component: () => import('@/pages/text-to-voice-generator/Index.vue')
+    },
   ]
 })
 

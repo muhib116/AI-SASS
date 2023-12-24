@@ -90,6 +90,15 @@ export const menus = [
         color: '#64B5F6'
     },
     {
+        title: 'Text to Voice Generator',
+        description: '',
+        icon: 'code',
+        to: {
+            name: 'text-to-voice-generator'
+        },
+        color: '#64B5F6'
+    },
+    {
         title: 'Settings',
         description: '',
         icon: 'sliders',
